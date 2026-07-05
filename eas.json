@@ -5,5 +5,13 @@
     "preview": { "distribution": "internal", "android": { "buildType": "apk" } },
     "production": { "autoIncrement": true }
   },
-  "submit": { "production": {} }
+  "submit": {
+    "production": {
+      "android": {
+        "serviceAccountKeyPath": "./google-play-service-account.json",
+        "track": "internal",
+        "releaseStatus": "completed"
+      }
+    }
+  }
 }
