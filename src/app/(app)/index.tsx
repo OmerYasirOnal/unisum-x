@@ -4,6 +4,7 @@ import { useRouter, useFocusEffect } from 'expo-router';
 import { api, Term, classLevelLabel } from '@/lib/api';
 import { colors, radius, gpaColor } from '@/lib/theme';
 import { Card, GPACircle, Empty } from '@/components/ui';
+import { AdBanner } from '@/components/AdBanner';
 
 const ORDER = ['pre', '1', '2', '3', '4'];
 
@@ -71,6 +72,8 @@ export default function Terms() {
           </View>
         ))
       )}
+
+      <AdBanner />
     </ScrollView>
   );
 }

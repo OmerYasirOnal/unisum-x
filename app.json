@@ -36,8 +36,19 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 76
         }
+      ],
+      [
+        "react-native-google-mobile-ads",
+        {
+          "androidAppId": "ca-app-pub-3940256099942544~3347511713",
+          "iosAppId": "ca-app-pub-3940256099942544~1458002511"
+        }
       ]
     ],
+    "extra": {
+      "admobBannerAndroid": "ca-app-pub-3940256099942544/6300978111",
+      "admobBannerIos": "ca-app-pub-3940256099942544/2934735716"
+    },
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
