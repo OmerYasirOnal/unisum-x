@@ -13,6 +13,7 @@ export default function RootLayout() {
           contentStyle: { backgroundColor: colors.bg },
         }}>
         <Stack.Screen name="login" options={{ headerShown: false }} />
+        <Stack.Screen name="signup" options={{ headerShown: false }} />
         <Stack.Screen name="(app)" options={{ headerShown: false }} />
         <Stack.Screen name="term/[id]" options={{ title: 'Dersler' }} />
         <Stack.Screen name="course/[id]" options={{ title: 'Ders Detayı' }} />

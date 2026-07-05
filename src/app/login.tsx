@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View, Text, TextInput, ScrollView, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, Text, TextInput, ScrollView, StyleSheet, KeyboardAvoidingView, Platform, Pressable } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useAuth } from '@/lib/auth';
 import { colors, radius, shadow } from '@/lib/theme';
@@ -49,6 +49,12 @@ export default function Login() {
           {error ? <Text style={styles.error}>{error}</Text> : null}
           <Button title="Giriş Yap" onPress={submit} loading={loading} style={{ marginTop: 4 }} />
         </View>
+
+        <Pressable onPress={() => router.push('/signup')} style={styles.linkRow}>
+          <Text style={styles.linkMuted}>Hesabın yok mu? </Text>
+          <Text style={styles.link}>Kayıt Ol</Text>
+        </Pressable>
+
         <Text style={styles.hint}>UniSum hesabınla giriş yap — verilerin tüm cihazlarında senkron.</Text>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -63,5 +69,8 @@ const styles = StyleSheet.create({
   card: { backgroundColor: colors.card, borderRadius: radius.lg, padding: 18, gap: 12, borderWidth: 1, borderColor: colors.hairline, ...shadow },
   input: { borderWidth: 1, borderColor: colors.hairline, borderRadius: radius.md, paddingHorizontal: 16, paddingVertical: 14, fontSize: 16, color: colors.text, backgroundColor: colors.card },
   error: { color: colors.danger, fontSize: 13, fontWeight: '600' },
+  linkRow: { flexDirection: 'row', justifyContent: 'center', marginTop: 12 },
+  linkMuted: { color: colors.textSec, fontSize: 14 },
+  link: { color: colors.brand, fontSize: 14, fontWeight: '700' },
   hint: { color: colors.textSec, fontSize: 12, textAlign: 'center', marginTop: 8 },
 });

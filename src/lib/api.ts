@@ -2,7 +2,7 @@ import { storage } from './storage';
 
 const BASE = 'https://unisum.duckdns.org/api';
 
-export type User = { id: number; email: string; university: string; department: string };
+export type User = { id: number; email: string; university: string; department: string; city?: string; country?: string };
 export type Term = { id: number; user_id: number; class_level: string; term_number: number; gpa?: number; totalCredits?: number };
 export type Course = { id: number; term_id: number; user_id: number; name: string; credits: number; average: number; gpa?: number; letterGrade?: string };
 export type Grade = { id: number; course_id: number; grade_type: string; score: number; weight: number };
@@ -41,8 +41,8 @@ export const api = {
     await storage.set('user', JSON.stringify(r.user));
     return r.user as User;
   },
-  async signup(email: string, password: string, university: string, department: string) {
-    return req('/auth/signup', { method: 'POST', body: JSON.stringify({ email, password, university, department }) });
+  async signup(email: string, password: string, university: string, department: string, city: string, country: string) {
+    return req('/auth/signup', { method: 'POST', body: JSON.stringify({ email, password, university, department, city, country }) });
   },
   async logout() {
     token = null;
