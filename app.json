@@ -47,11 +47,16 @@
     ],
     "extra": {
       "admobBannerAndroid": "ca-app-pub-3940256099942544/6300978111",
-      "admobBannerIos": "ca-app-pub-3940256099942544/2934735716"
+      "admobBannerIos": "ca-app-pub-3940256099942544/2934735716",
+      "router": {},
+      "eas": {
+        "projectId": "9cd00d69-e619-4f9a-b1a9-b42bacb394f2"
+      }
     },
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "owner": "omeryasironal"
   }
 }
