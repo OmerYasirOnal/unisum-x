@@ -31,6 +31,7 @@ export default function Terms() {
   if (loading) return <View style={styles.center}><ActivityIndicator color={colors.brand} size="large" /></View>;
 
   return (
+    <View style={{ flex: 1 }}>
     <ScrollView
       contentContainerStyle={styles.scroll}
       refreshControl={<RefreshControl refreshing={refreshing} onRefresh={() => { setRefreshing(true); load(); }} tintColor={colors.brand} />}>
@@ -72,9 +73,9 @@ export default function Terms() {
           </View>
         ))
       )}
-
-      <AdBanner />
     </ScrollView>
+      {terms.length > 0 ? <AdBanner /> : null}
+    </View>
   );
 }
 

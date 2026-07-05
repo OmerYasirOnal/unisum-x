@@ -4,6 +4,7 @@ import { useLocalSearchParams, useRouter, useFocusEffect, Stack } from 'expo-rou
 import { api, Course } from '@/lib/api';
 import { colors, radius, scoreColor, gpaColor } from '@/lib/theme';
 import { Card, GPACircle, Badge, Empty } from '@/components/ui';
+import { AdBanner } from '@/components/AdBanner';
 import { termGPA, totalCredits } from '@/lib/gpa';
 
 export default function TermCourses() {
@@ -24,8 +25,9 @@ export default function TermCourses() {
   if (loading) return <View style={styles.center}><ActivityIndicator color={colors.brand} size="large" /></View>;
 
   return (
+    <View style={{ flex: 1 }}>
+    <Stack.Screen options={{ title: 'Dersler' }} />
     <ScrollView contentContainerStyle={styles.scroll}>
-      <Stack.Screen options={{ title: 'Dersler' }} />
       <Card style={{ flexDirection: 'row', alignItems: 'center', gap: 16 }}>
         <GPACircle value={gpa} size={80} />
         <View style={{ flex: 1 }}>
@@ -51,6 +53,8 @@ export default function TermCourses() {
           </Pressable>
         ))}
     </ScrollView>
+      {courses.length > 0 ? <AdBanner /> : null}
+    </View>
   );
 }
 
