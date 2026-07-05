@@ -4,6 +4,7 @@ import { useFocusEffect } from 'expo-router';
 import { api, classLevelLabel } from '@/lib/api';
 import { colors, radius, gpaColor } from '@/lib/theme';
 import { Card, Button, GPACircle } from '@/components/ui';
+import { Markdown } from '@/components/Markdown';
 
 const SITE = process.env.EXPO_PUBLIC_SITE_URL || '';
 
@@ -123,7 +124,7 @@ export default function Coach() {
         <Text style={styles.title}>✨  Dönem Analizi</Text>
         <Text style={{ color: colors.textSec }}>AI, tüm derslerini ve notlarını inceleyip kişisel öneriler versin.</Text>
         <Button title={analyzing ? 'Analiz ediliyor…' : 'Beni Analiz Et'} onPress={analyze} loading={analyzing} />
-        {analysis ? <Text style={styles.ai}>{analysis}</Text> : null}
+        {analysis ? <Markdown source={analysis} /> : null}
       </Card>
 
       {/* Chat */}
@@ -133,7 +134,7 @@ export default function Coach() {
           value={question} onChangeText={setQuestion} placeholder="ör. Bu dönem hangi derse odaklanmalıyım?"
           placeholderTextColor={colors.textSec} style={[styles.input, { minHeight: 44 }]} multiline onSubmitEditing={ask} />
         <Button title={asking ? 'Düşünüyor…' : 'Sor'} onPress={ask} loading={asking} variant="secondary" />
-        {answer ? <Text style={styles.ai}>{answer}</Text> : null}
+        {answer ? <Markdown source={answer} /> : null}
       </Card>
       <View style={{ height: 20 }} />
     </ScrollView>
